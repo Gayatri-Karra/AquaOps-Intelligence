@@ -1,0 +1,41 @@
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aquaops-intelligence"
+version = "0.1.0"
+description = "Water treatment monitoring and predictive maintenance platform"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "streamlit>=1.40,<2.0",
+    "plotly>=5.24,<7.0",
+    "pandas>=2.2,<4.0",
+    "SQLAlchemy>=2.0,<3.0",
+    "psycopg[binary]>=3.2,<4.0",
+    "pydantic-settings>=2.6,<3.0",
+    "python-dotenv>=1.0,<2.0",
+    "scikit-learn>=1.5,<2.0",
+    "joblib>=1.4,<2.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
